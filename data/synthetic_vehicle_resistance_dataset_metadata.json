@@ -1,0 +1,34 @@
+{
+  "dataset_name": "Synthetic Vehicle Resistance Dataset for Gradient Descent",
+  "dataset_type": "synthetic_simulated_not_real_vehicle_measurements",
+  "purpose": "Fit F_res = c0 + c2*v^2 using gradient descent and compare with least squares.",
+  "random_seed": 24,
+  "number_of_samples": 65,
+  "speed_range_mps": [
+    5,
+    70
+  ],
+  "generating_model": "force_N = 180 + 0.32 * speed_mps**2 + noise_N",
+  "generating_parameters": {
+    "c0_true_N": 180.0,
+    "c2_true_N_s2_per_m2": 0.32
+  },
+  "noise_model": {
+    "distribution": "Gaussian/Normal",
+    "mean_N": 0.0,
+    "standard_deviation_N": 30.0
+  },
+  "columns": {
+    "sample_id": "Unique row identifier",
+    "speed_mps": "Synthetic vehicle speed in metres per second",
+    "force_N": "Synthetic noisy resistance force in newtons; primary training target",
+    "noise_N": "Synthetic noise added to the generating force; audit/debug only",
+    "force_without_noise_N": "Underlying synthetic force before noise; debug/visualization only, not primary training target"
+  },
+  "important_limitations": [
+    "This dataset is synthetic and is not measured Formula 1 telemetry or real vehicle resistance data.",
+    "The force_N column is simulated from the stated equation plus noise.",
+    "Do not claim that fitted coefficients calibrate a real F1 car.",
+    "Use speed_mps and force_N for the primary fit; do not use force_without_noise_N as the training target unless explicitly running a separate noiseless demonstration."
+  ]
+}
