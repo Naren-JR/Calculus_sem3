@@ -81,3 +81,9 @@ npm run build
 Tests cover finite-difference gradients, exact least-squares parity, loss monotonicity for stable updates, divergence detection and API input rejection. See API documentation at http://127.0.0.1:8000/docs.
 
 This is a local implementation. A report, signatures, student details and report screenshots remain separate deliverables.
+
+## Interface update
+
+Equations and worked iterations use bundled KaTeX with local fonts. No CDN is required. Header credits: Praful, Naren, Pavan, Mohit. Help / Manual explains every control, metric and source boundary.
+
+The circuit slider selects normalized arc-length position rather than speed. A smoothed curvature-based illustrative speed profile slows into bends and rises along straighter sections (bounded inside the dataset speed range). It is not a validated dynamics or telemetry model. The marker follows the local track direction. Track segments are coloured by current predicted resistance, with a relative green-to-red scale and numerical min/max legend. If resistance is constant, all segments are green. This visualization never changes the CSV or fitted model.
