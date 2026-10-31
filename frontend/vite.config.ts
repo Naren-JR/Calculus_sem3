@@ -1,2 +1,3 @@
 import {defineConfig} from 'vite';
-export default defineConfig({server:{proxy:{'/api':'http://127.0.0.1:8000'}}});
+// Relative URLs work at /Calculus_sem3/ as well as on local preview.
+export default defineConfig({base:'./'});
